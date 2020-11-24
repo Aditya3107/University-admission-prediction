@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict University Admission</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="GRE_Score" placeholder="GRE Score" required="required" />
+        <input type="text" name="TOEFL_Score" placeholder="TOEFL Score" required="required" />
+        <input type="text" name="University_Rating" placeholder="University Rating" required="required" />
+        <input type="text" name="SOP" placeholder="SOP Score" required="required" />
+        <input type="text" name="LOR" placeholder="LOR Score" required="required" />
+        <input type="number" min="4.50" max="10.00" step="any" id="CGPA" name="CGPA" required="required" title="CGPA" class="formfield3" placeholder="CGPA" />
+        <input type="text" name="Research" placeholder="Research" required="required" />
+
+        
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Chance of Admit</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
